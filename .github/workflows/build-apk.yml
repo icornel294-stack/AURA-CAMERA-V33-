@@ -23,6 +23,9 @@ jobs:
         with:
           gradle-version: '8.7'
 
+      - name: Apply AURA MAX Stage 1
+        run: python3 tools/apply_stage1.py
+
       - name: Build debug APK
         run: gradle assembleDebug --stacktrace
 
