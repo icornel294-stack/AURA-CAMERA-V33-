@@ -23,9 +23,10 @@ jobs:
         with:
           gradle-version: '8.7'
 
-      - name: Normalize Android color literals
+      - name: Normalize source for build
         run: |
           sed -i 's/0x334FFFFFF/0x33FFFFFF/g; s/0x556FFFFFF/0x55FFFFFF/g' app/src/main/java/ro/auracamera/app/MainActivity.java
+          sed -i '/ScalerAvailableStreamConfigurations/d' app/src/main/java/ro/auracamera/app/MainActivity.java
 
       - name: Build debug APK
         run: gradle assembleDebug --stacktrace
